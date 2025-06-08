@@ -1,0 +1,16 @@
+// app/aircrafts/page.tsx
+
+import { Card, CardContent } from "@/components/ui/card"
+
+export default function AircraftsPage() {
+  return (
+    <div className="p-6 space-y-4">
+      <h1 className="text-2xl font-bold">Флот компании</h1>
+      <Card>
+        <CardContent className="p-4">
+          <p>Здесь будет отображаться список доступных воздушных судов, сгруппированных по типам.</p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

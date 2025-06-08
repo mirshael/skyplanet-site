@@ -1,0 +1,52 @@
+import Navbar from '@/components/Navbar'
+
+export default function CrewPage() {
+  return (
+    <>
+      <Navbar />
+      <main className="max-w-6xl mx-auto py-12 px-4">
+        <h1 className="text-3xl font-bold mb-6 text-center">Экипаж</h1>
+        <div className="overflow-x-auto">
+          <table className="min-w-full border divide-y divide-gray-200">
+            <thead className="bg-gray-100">
+              <tr>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Позывной</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Имя</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Звание</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">CID</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">VID</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Домашний аэропорт</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Дата регистрации</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Рейтинг</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Рейсы</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Часы</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">RVR</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Последний полёт</th>
+                <th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">Текущая позиция</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {/* Здесь позже будет динамически отображаться список пилотов */}
+              <tr>
+                <td className="px-4 py-2">SPG7001</td>
+                <td className="px-4 py-2 text-blue-600 underline cursor-pointer">Иван Иванов</td>
+                <td className="px-4 py-2">Captain</td>
+                <td className="px-4 py-2">1234567</td>
+                <td className="px-4 py-2">891011</td>
+                <td className="px-4 py-2">UUEE</td>
+                <td className="px-4 py-2">2024-05-01</td>
+                <td className="px-4 py-2">98.5</td>
+                <td className="px-4 py-2">154</td>
+                <td className="px-4 py-2">342 ч</td>
+                <td className="px-4 py-2">250 м</td>
+                <td className="px-4 py-2">2025-06-05</td>
+                <td className="px-4 py-2">UUEE</td>
+              </tr>
+              {/* Пример закончился */}
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </>
+  )
+}

@@ -1,0 +1,53 @@
+// app/fleet/page.tsx
+
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import { db } from "@/lib/db"
+import Link from "next/link"
+
+export default async function FleetPage() {
+  const aircrafts = await db.aircraft.findMany({
+    include: {
+      type: true,
+    },
+    orderBy: {
+      typeId: "asc",
+    },
+  })
+
+  const grouped = aircrafts.reduce((acc: any, ac) => {
+    const type = ac.type.name
+    if (!acc[type]) acc[type] = []
+    acc[type].push(ac)
+    return acc
+  }, {})
+
+  return (
+    <div className="space-y-8">
+      {Object.keys(grouped).map((type) => (
+        <div key={type}>
+          <h2 className="text-2xl font-bold mb-4">{type}</h2>
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {grouped[type].map((ac: any) => (
+              <Card key={ac.id}>
+                <CardContent className="p-4 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold">{ac.tailNumber}</h3>
+                    <Badge>{ac.status}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{ac.base}</p>
+                  <Link
+                    href={/schedule?aircraftId=${ac.id}}
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Забронировать рейс
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}

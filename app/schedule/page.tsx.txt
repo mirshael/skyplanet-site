@@ -1,0 +1,16 @@
+// app/schedule/page.tsx
+
+import { Card, CardContent } from "@/components/ui/card"
+
+export default function SchedulePage() {
+  return (
+    <div className="p-6 space-y-4">
+      <h1 className="text-2xl font-bold">Расписание рейсов</h1>
+      <Card>
+        <CardContent className="p-4">
+          <p>Здесь будет отображаться расписание рейсов с возможностью фильтрации и бронирования.</p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

@@ -1,0 +1,16 @@
+// app/statistics/page.tsx
+
+import { Card, CardContent } from "@/components/ui/card"
+
+export default function StatisticsPage() {
+  return (
+    <div className="p-6 space-y-4">
+      <h1 className="text-2xl font-bold">Статистика</h1>
+      <Card>
+        <CardContent className="p-4">
+          <p>Здесь будет отображаться сводная статистика по пилотам, рейсам и часам налета.</p>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}

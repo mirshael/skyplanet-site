@@ -1,0 +1,38 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { clsx } from 'clsx'
+
+const navItems = [
+  { name: 'Главная', href: '/' },
+  { name: 'Расписание', href: '/schedule' },
+  { name: 'Флот', href: '/fleet' },
+  { name: 'Экипаж', href: '/crew' },
+  { name: 'Профиль', href: '/profile' },
+]
+
+export default function Navbar() {
+  const pathname = usePathname()
+
+  return (
+    <nav className="w-full bg-white border-b shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="flex space-x-4">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className={clsx(
+                'text-sm font-medium px-3 py-2 rounded-md hover:bg-gray-100 transition-all',
+                pathname === item.href ? 'bg-gray-200' : 'text-gray-700'
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </nav>
+  )
+}
